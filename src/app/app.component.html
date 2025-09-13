@@ -1,0 +1,210 @@
+<div class="h-screen flex overflow-hidden">
+  <!-- Mobile backdrop -->
+  @if (isMobile()) {
+  <div
+    class="fixed inset-0 bg-black/50 z-[1001]"
+    [@backdropAnimation]="opened() ? 'visible' : 'hidden'"
+    (click)="opened.set(false)"
+    aria-hidden="true"
+  ></div>
+  }
+
+  <div class="relative">
+    <!-- Toggle Button (Desktop only) -->
+    @if (!isMobile()) {
+    <header class="absolute top-4 -right-4 z-50">
+      <button
+        class="w-8 h-8 border-3 border-gray-soft-50 bg-green-800 text-white rounded-full cursor-pointer flex items-center justify-center transition-colors duration-200 hover:bg-green-700 shadow-subtle"
+        (click)="toggleSidebar()"
+        [attr.aria-label]="collapsed() ? 'Expand sidebar' : 'Collapse sidebar'"
+        [attr.aria-expanded]="!collapsed()"
+        [attr.aria-controls]="'sidebar-navigation'"
+      >
+        <mat-icon
+          [class.pl-1]="collapsed()"
+          [class.pl-r]="!collapsed()"
+          class="pt-0.5 text-sm text-white"
+        >
+          @if (collapsed()) { arrow_back_ios } @else { arrow_forward_ios }
+        </mat-icon>
+      </button>
+    </header>
+    }
+    <!-- Sidebar -->
+    <nav
+      [class]="getSidebarClasses()"
+      [@sidebarAnimation]="sidebarState()"
+      [@mobileDrawer]="mobileDrawerState()"
+      id="sidebar-navigation"
+      role="navigation"
+      aria-label="Main navigation"
+      [attr.aria-hidden]="isMobile() && !opened()"
+    >
+      <!-- Navigation Content -->
+      <section class="flex-1 flex flex-col justify-between py-4">
+        <!-- Main Navigation -->
+        <ul class="list-none p-0 m-0 space-y-2" role="menubar">
+          @for (item of items(); track $index; let i = $index) {
+          <li role="none">
+            <button
+              [class]="getNavLinkClasses(item.active)"
+              (click)="onItemClick()"
+              [attr.aria-label]="item.label"
+              [attr.aria-current]="item.active ? 'page' : null"
+              role="menuitem"
+              [attr.tabindex]="i === 0 ? '0' : '-1'"
+            >
+              <img
+                [src]="getSvgIcon(item.icon)"
+                class="flex items-center justify-center min-w-5 h-4 w-4 invert-[67%] sepia-[8%] saturate-[427%] hue-rotate-[202deg] brightness-[89%] contrast-[86%] transition-all duration-200"
+                [alt]="item.label + ' icon'"
+                aria-hidden="true"
+              />
+              <!-- Label with animation -->
+              @if (!collapsed() || isMobile()) {
+              <span
+                class="text-sm font-medium overflow-hidden"
+                [@textFade]="textState()"
+              >
+                {{ item.label }}
+              </span>
+              }
+            </button>
+          </li>
+          }
+        </ul>
+
+        <!-- Secondary Navigation -->
+        <ul class="list-none p-0 m-0 space-y-2" role="menubar">
+          <li role="none">
+            <button [class]="getNavLinkClasses(false)" role="menuitem">
+              <img
+                src="/settings.svg"
+                class="flex items-center justify-center min-w-5 h-4 w-4 invert-[67%] sepia-[8%] saturate-[427%] hue-rotate-[202deg] brightness-[89%] contrast-[86%] transition-all duration-200"
+                alt="Settings icon"
+                aria-hidden="true"
+              />
+              @if (!collapsed() || isMobile()) {
+              <span
+                class="text-sm font-medium overflow-hidden"
+                [@textFade]="textState()"
+              >
+                Lorem
+              </span>
+              }
+            </button>
+          </li>
+
+          <li role="none">
+            <button [class]="getNavLinkClasses(false)" role="menuitem">
+              <img
+                src="/preferences.svg"
+                class="flex items-center justify-center min-w-5 h-4 w-4 invert-[67%] sepia-[8%] saturate-[427%] hue-rotate-[202deg] brightness-[89%] contrast-[86%] transition-all duration-200"
+                alt="Preferences icon"
+                aria-hidden="true"
+              />
+              @if (!collapsed() || isMobile()) {
+              <span
+                class="text-sm font-medium overflow-hidden"
+                [@textFade]="textState()"
+              >
+                Lorem
+              </span>
+              }
+            </button>
+          </li>
+        </ul>
+      </section>
+
+      <!-- User Profile Footer -->
+      <footer class="py-5 border-t border-gray-100">
+        <div class="flex items-center gap-3">
+          <div
+            class="w-10 h-10 bg-gray-100 rounded-full flex items-center justify-center flex-shrink-0"
+          >
+            <img
+              src="/avatar.svg"
+              class="w-6 h-6"
+              alt="User avatar"
+              aria-hidden="true"
+            />
+          </div>
+
+          @if (!collapsed() || isMobile()) {
+          <div class="flex-1 min-w-0 overflow-hidden" [@textFade]="textState()">
+            <h3
+              class="font-normal text-sm leading-6 text-gray-700 truncate"
+              id="user-name"
+            >
+              Lorem
+            </h3>
+            <p class="text-xs text-gray-700 truncate" id="user-email">Lorem</p>
+          </div>
+
+          <button
+            class="w-8 h-8 border-0 bg-transparent text-gray-400 cursor-pointer flex items-center justify-center rounded transition-colors duration-200 hover:bg-gray-100 hover:text-gray-700 flex-shrink-0"
+            aria-label="User menu"
+            aria-haspopup="true"
+            aria-expanded="false"
+            [@textFade]="textState()"
+          >
+            <img
+              src="/logout.svg"
+              class="w-4 h-4"
+              alt="Logout icon"
+              aria-hidden="true"
+            />
+          </button>
+          }
+        </div>
+      </footer>
+    </nav>
+  </div>
+
+  <!-- Main Content -->
+  <main
+    class="flex-1 overflow-hidden transition-all duration-300"
+    [class.ml-0]="isMobile()"
+    [class.ml-20]="!isMobile() && collapsed()"
+  >
+    <!-- Mobile Header -->
+    @if (isMobile()) {
+    <header
+      class="bg-white shadow-background border-b border-gray-200 px-4 py-3 flex items-center justify-between"
+    >
+      <button
+        class="p-2 rounded-md text-gray-600 hover:text-gray-900 hover:bg-gray-100 transition-colors duration-200"
+        (click)="toggle()"
+        aria-label="Open sidebar menu"
+        aria-controls="sidebar-navigation"
+        [attr.aria-expanded]="opened()"
+      >
+        <svg
+          class="w-6 h-6"
+          fill="none"
+          stroke="currentColor"
+          viewBox="0 0 24 24"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M4 6h16M4 12h16M4 18h16"
+          ></path>
+        </svg>
+      </button>
+      <h1 class="text-lg font-semibold text-gray-900">Reports</h1>
+      <div class="w-10"></div>
+      <!-- Spacer for centering -->
+    </header>
+    }
+
+    <!-- Main Content Area -->
+    <div
+      class="h-full overflow-auto"
+      [class.min-w-[100vw]]="isMobile() && !collapsed()"
+    >
+      <div class="p-6">content</div>
+    </div>
+  </main>
+</div>
