@@ -2,8 +2,10 @@ import { Component } from '@angular/core';
 import { MatIconModule } from '@angular/material/icon';
 import { AssetFlowComponent } from './asset-flow/asset-flow.component';
 import { RiskChartComponent } from './risk-chart/risk-chart.component';
-import { RiskInfoComponent } from "./risk-info/risk-info.component";
+import { RiskInfoComponent } from './risk-info/risk-info.component';
 import { RiskTableComponent } from './risk-table/risk-table.component';
+import { MOCK_INFO_CARDS } from '../shared/constants/mock-data';
+import { InfoCard } from '../shared/models';
 
 @Component({
   selector: 'app-reports',
@@ -19,12 +21,5 @@ import { RiskTableComponent } from './risk-table/risk-table.component';
   styleUrl: './reports.component.scss'
 })
 export class ReportsComponent {
-
-  cardData = new Array(3).fill({
-    header: "Lorem P",
-    title: "Server",
-    subtitle: "Server",
-    content: "Lorem ipsum dolor sit amet consectetur.",
-    description: "Lorem ipsum dolor sit amet consectetur. Nunc vitae tortor convallis vitae arcu. Magna."
-  });
+  cardData: InfoCard[] = MOCK_INFO_CARDS;
 }
