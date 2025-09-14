@@ -7,7 +7,7 @@
   >
     <!-- Network Canvas -->
     <div
-      class="h-55 rounded-lg flex items-center justify-center gap-4 w-fit md:w-full"
+      class="h-[220px] rounded-lg flex items-center justify-center gap-4 w-fit md:w-full"
       role="img"
     >
       <span role="img" aria-label="Firewall node">
@@ -20,9 +20,8 @@
         </app-graph-node>
       </span>
 
-      <span class="mb-5">
-        <img id="node" class="w-14 h-2" src="./arrow.svg" />
-        <p for="node" class="opacity-0 h-0">Image node</p>
+      <span class="mb-5" aria-hidden="true">
+        <img class="w-14 h-2" src="./arrow.svg" alt="Flow arrow" />
       </span>
 
       <span role="img" aria-label="Load balancer node">
@@ -31,9 +30,8 @@
         </app-graph-node>
       </span>
 
-      <span class="mb-5">
-        <img src="./arrow.svg" />
-        <p for="node" class="opacity-0 h-0">Image node</p>
+      <span class="mb-5" aria-hidden="true">
+        <img src="./arrow.svg" alt="Flow arrow" />
       </span>
 
       <span role="img" aria-label="Web server node">
@@ -42,9 +40,8 @@
         </app-graph-node>
       </span>
 
-      <span class="mb-5">
-        <img src="./branch.svg" />
-        <p for="node" class="opacity-0 h-0">Image node</p>
+      <span class="mb-5" aria-hidden="true">
+        <img src="./branch.svg" alt="Branch arrow" />
       </span>
 
       <!-- Branched Nodes -->
