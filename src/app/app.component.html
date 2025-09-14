@@ -21,11 +21,11 @@
         [attr.aria-controls]="'sidebar-navigation'"
       >
         <mat-icon
-          [class.pl-1]="collapsed()"
-          [class.pl-r]="!collapsed()"
+          [class.pl-1]="!collapsed()"
+          [class.pl-r]="collapsed()"
           class="pt-0.5 text-sm text-white"
         >
-          @if (collapsed()) { arrow_back_ios } @else { arrow_forward_ios }
+          @if (!collapsed()) { arrow_back_ios } @else { arrow_forward_ios }
         </mat-icon>
       </button>
     </header>
