@@ -1,1 +1,12 @@
+#sidebar-navigation {
+  will-change: width, transform;
+  backface-visibility: hidden;
+  contain: layout paint;
+}
 
+@media (prefers-reduced-motion: reduce) {
+  #sidebar-navigation {
+    transition: none !important;
+    animation: none !important;
+  }
+}

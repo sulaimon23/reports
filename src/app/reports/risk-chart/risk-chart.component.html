@@ -51,7 +51,7 @@
             segment.percent + ' ' + (100 - segment.percent)
           "
           [attr.stroke-dashoffset]="100 - segment.offset"
-          class="fill-none stroke-[4px] transition-all duration-600 ease-in-out"
+          class="fill-none stroke-[4px] transition-all duration-700 ease-in-out"
           [ngClass]="{
             'stroke-red-800': segment.colorClass === 'critical',
             'stroke-red-700': segment.colorClass === 'high',
@@ -70,7 +70,7 @@
           dominant-baseline="middle"
           style="transform-origin: 75px 75px"
         >
-          2
+          {{ riskCounts().critical }}
         </text>
       </svg>
     </div>

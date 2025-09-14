@@ -1,13 +1,6 @@
 import { Component, input } from '@angular/core';
 import { MatExpansionModule } from '@angular/material/expansion';
-
-interface IInfoCard {
-  header: string;
-  title: string;
-  subtitle: string;
-  content: string;
-  description?: string;
-}
+import { InfoCard } from '../../shared/models';
 
 @Component({
   selector: 'app-risk-info',
@@ -19,5 +12,5 @@ interface IInfoCard {
   styleUrl: './risk-info.component.scss'
 })
 export class RiskInfoComponent {
-  data = input.required<IInfoCard>();
+  data = input.required<InfoCard>();
 }

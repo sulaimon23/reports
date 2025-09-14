@@ -22,7 +22,7 @@
       >
         <mat-icon
           [class.pl-1]="!collapsed()"
-          [class.pl-r]="collapsed()"
+          [class.pr-1]="collapsed()"
           class="pt-0.5 text-sm text-white"
         >
           @if (!collapsed()) { arrow_back_ios } @else { arrow_forward_ios }
@@ -60,7 +60,7 @@
             >
               <img
                 [src]="getSvgIcon(item.icon)"
-                class="flex items-center justify-center min-w-5 h-4 w-4 invert-[67%] sepia-[8%] saturate-[427%] hue-rotate-[202deg] brightness-[89%] contrast-[86%] transition-all duration-200"
+                class="flex items-center justify-center min-w-[20px] h-4 w-4 invert-[67%] sepia-[8%] saturate-[427%] hue-rotate-[202deg] brightness-[89%] contrast-[86%] transition-all duration-200"
                 [alt]="item.label + ' icon'"
                 aria-hidden="true"
               />
@@ -84,7 +84,7 @@
             <button [class]="getNavLinkClasses(false)" role="menuitem">
               <img
                 src="/settings.svg"
-                class="flex items-center justify-center min-w-5 h-4 w-4 invert-[67%] sepia-[8%] saturate-[427%] hue-rotate-[202deg] brightness-[89%] contrast-[86%] transition-all duration-200"
+                class="flex items-center justify-center min-w-[20px] h-4 w-4 invert-[67%] sepia-[8%] saturate-[427%] hue-rotate-[202deg] brightness-[89%] contrast-[86%] transition-all duration-200"
                 alt="Settings icon"
                 aria-hidden="true"
               />
@@ -103,7 +103,7 @@
             <button [class]="getNavLinkClasses(false)" role="menuitem">
               <img
                 src="/preferences.svg"
-                class="flex items-center justify-center min-w-5 h-4 w-4 invert-[67%] sepia-[8%] saturate-[427%] hue-rotate-[202deg] brightness-[89%] contrast-[86%] transition-all duration-200"
+                class="flex items-center justify-center min-w-[20px] h-4 w-4 invert-[67%] sepia-[8%] saturate-[427%] hue-rotate-[202deg] brightness-[89%] contrast-[86%] transition-all duration-200"
                 alt="Preferences icon"
                 aria-hidden="true"
               />

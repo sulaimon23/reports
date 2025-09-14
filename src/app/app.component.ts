@@ -21,7 +21,7 @@ interface NavItem {
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
   animations: [
-    // Sidebar width animation
+
     trigger('sidebarAnimation', [
       state('expanded', style({
         width: '250px'
@@ -34,7 +34,7 @@ interface NavItem {
       ])
     ]),
 
-    // Text fade animation
+
     trigger('textFade', [
       state('visible', style({
         opacity: 1,
@@ -52,7 +52,7 @@ interface NavItem {
       ])
     ]),
 
-    // Mobile drawer animation
+
     trigger('mobileDrawer', [
       state('open', style({
         width: '250px',
@@ -67,7 +67,7 @@ interface NavItem {
         animate('300ms cubic-bezier(0.4, 0, 0.2, 1)')
       ])
     ]),
-    //Mobile backdrop animation
+
     trigger('backdropAnimation', [
       state('visible', style({
         transform: 'translateX(0)',
@@ -85,11 +85,11 @@ interface NavItem {
 })
 export class AppComponent {
 
-  opened = signal(true);
-  collapsed = signal(false);
-  isMobile = signal(false);
+  readonly opened = signal(true);
+  readonly collapsed = signal(false);
+  readonly isMobile = signal(false);
 
-  items = signal<NavItem[]>([
+  readonly items = signal<NavItem[]>([
     { icon: 'dashboard', label: 'Lorem', active: false },
     { icon: 'vulnerabilities', label: 'Lorem', active: false },
     { icon: 'assets', label: 'Lorem', active: false },
@@ -100,15 +100,15 @@ export class AppComponent {
   ]);
 
   // Animation states
-  sidebarState = computed(() =>
+  readonly sidebarState = computed(() =>
     this.collapsed() && !this.isMobile() ? 'collapsed' : 'expanded'
   );
 
-  textState = computed(() =>
+  readonly textState = computed(() =>
     this.collapsed() && !this.isMobile() ? 'hidden' : 'visible'
   );
 
-  mobileDrawerState = computed(() =>
+  readonly mobileDrawerState = computed(() =>
     this.opened() ? 'open' : 'closed'
   );
 
@@ -169,7 +169,7 @@ export class AppComponent {
   getSidebarClasses(): string {
     const baseClasses = 'bg-white shadow-lg rounded-xl flex flex-col transition-all duration-300 relative z-10 h-screen overflow-hidden';
     const mobileClasses = this.isMobile()
-      ? 'fixed left-0 z-[1002] w-64'
+      ? 'fixed left-0 z-[1002]'
       : '';
     const padding = this.collapsed() && !this.isMobile() ? 'px-4 py-7' : 'p-7';
 
