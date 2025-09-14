@@ -21,7 +21,7 @@ interface NavItem {
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
   animations: [
-    // Sidebar width animation
+
     trigger('sidebarAnimation', [
       state('expanded', style({
         width: '250px'
@@ -34,7 +34,7 @@ interface NavItem {
       ])
     ]),
 
-    // Text fade animation
+
     trigger('textFade', [
       state('visible', style({
         opacity: 1,
@@ -52,7 +52,7 @@ interface NavItem {
       ])
     ]),
 
-    // Mobile drawer animation
+
     trigger('mobileDrawer', [
       state('open', style({
         width: '250px',
@@ -67,7 +67,7 @@ interface NavItem {
         animate('300ms cubic-bezier(0.4, 0, 0.2, 1)')
       ])
     ]),
-    //Mobile backdrop animation
+
     trigger('backdropAnimation', [
       state('visible', style({
         transform: 'translateX(0)',
