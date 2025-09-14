@@ -169,7 +169,7 @@ export class AppComponent {
   getSidebarClasses(): string {
     const baseClasses = 'bg-white shadow-lg rounded-xl flex flex-col transition-all duration-300 relative z-10 h-screen overflow-hidden';
     const mobileClasses = this.isMobile()
-      ? 'fixed left-0 z-[1002] w-64'
+      ? 'fixed left-0 z-[1002]'
       : '';
     const padding = this.collapsed() && !this.isMobile() ? 'px-4 py-7' : 'p-7';
 
