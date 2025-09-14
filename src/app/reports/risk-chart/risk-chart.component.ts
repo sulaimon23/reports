@@ -1,5 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { Component, computed } from '@angular/core';
+import { RISK_COUNTS } from '../../shared/constants/mock-data';
 
 
 interface RiskStat {
@@ -33,10 +34,7 @@ export class RiskChartComponent {
 
   // Computed values
 
-  protected readonly riskCounts = computed(() => {
-    const counts = { critical: 2, high: 0, medium: 0, low: 0 };
-    return counts;
-  });
+  protected readonly riskCounts = computed(() => RISK_COUNTS);
 
   protected readonly riskStats = computed((): RiskStat[] => {
     const counts = this.riskCounts();
@@ -51,7 +49,7 @@ export class RiskChartComponent {
 
   protected readonly chartSegments = computed((): ChartSegment[] => {
     const counts = this.riskCounts();
-    var total = 2;
+    const total = counts.critical + counts.high + counts.medium + counts.low;
 
     if (total === 0) {
       return [];
