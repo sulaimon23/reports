@@ -2,9 +2,23 @@
 @tailwind components;
 @tailwind utilities;
 
-mat-icon {
-  vertical-align: middle;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+body {
+  font-family: "Public Sans", sans-serif;
+  font-optical-sizing: auto;
+}
+
+@layer utilities {
+
+  /* Hide scrollbar for Chrome, Safari and Opera */
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+
+  /* Hide scrollbar for IE, Edge and Firefox */
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    /* IE and Edge */
+    scrollbar-width: none;
+    /* Firefox */
+  }
 }

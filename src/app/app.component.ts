@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { Component, computed, HostListener, signal } from '@angular/core';
 import { MatIconModule } from '@angular/material/icon';
 import { MatSidenavModule } from '@angular/material/sidenav';
+import { RouterOutlet } from '@angular/router';
 interface NavItem {
   icon: string;
   label: string;
@@ -15,6 +16,7 @@ interface NavItem {
     MatSidenavModule,
     CommonModule,
     MatIconModule,
+    RouterOutlet,
   ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
@@ -128,7 +130,7 @@ export class AppComponent {
         this.opened.set(false);
         this.collapsed.set(false);
       } else {
-        this.opened.set(true)
+        this.opened.set(true);
       }
 
     }, 100);

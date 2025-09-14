@@ -1,0 +1,71 @@
+<div
+  class="inline-flex flex-col items-start gap-3 bg-white shadow-background rounded-lg relative"
+>
+  <div class="inline-flex flex-col items-start gap-5 relative flex-[0_0_auto]">
+    <div class="bg-gray-50 border-0 rounded-lg">
+      <div
+        class="inline-flex flex-col items-start justify-center gap-[5px] px-4 py-2.5 rounded-lg shadow-background bg-white"
+      >
+        <!-- Header with icon and title -->
+        <div
+          class="flex items-center gap-3.5 relative self-stretch w-full flex-[0_0_auto]"
+        >
+          <img
+            class="relative w-[39.69px] h-[39.69px]"
+            [alt]="config.title"
+            [src]="config.iconSrc"
+          />
+          <div class="flex flex-col items-start gap-[5px] relative flex-1 grow">
+            <div
+              class="relative w-fit mt-[-1.00px] font-semibold text-gray-soft-700 text-[13px] tracking-[0] leading-[13.5px] whitespace-nowrap"
+            >
+              {{ config.title }}
+            </div>
+            <div
+              *ngIf="config.subtitle"
+              class="relative w-fit text-gray-500 text-[11px] leading-[13px] whitespace-nowrap"
+            >
+              {{ config.subtitle }}
+            </div>
+          </div>
+        </div>
+
+        <!-- Dynamic rows -->
+        <div
+          *ngFor="let row of config.rows; trackBy: trackByIndex"
+          class="inline-flex items-center gap-[5px] relative flex-[0_0_auto]"
+        >
+          <!-- Receipt icon (conditional) -->
+          <img *ngIf="row.hasIcon" src="./documentation.svg" />
+          <!-- Label (conditional) -->
+          <div
+            *ngIf="row.label"
+            class="relative w-fit font-bold text-gray-soft-700 text-[15px] tracking-[0.15px] leading-[22px] whitespace-nowrap"
+          >
+            {{ row.label }}
+          </div>
+
+          <!-- Badges -->
+          <span
+            *ngFor="let badge of row.badges; trackBy: trackByIndex"
+            [class]="getBadgeClasses(badge)"
+          >
+            <div
+              class="relative w-fit mt-[-1.00px] leading-[22px] whitespace-nowrap"
+            >
+              {{ badge.text }}
+            </div>
+          </span>
+
+          <!-- Trailing text (conditional) -->
+          <div
+            *ngIf="row.trailingText"
+            class="relative w-fit font-bold text-gray-soft-700 text-[15px] tracking-[0.15px] leading-[22px] whitespace-nowrap"
+          >
+            {{ row.trailingText }}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

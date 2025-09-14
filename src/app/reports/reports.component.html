@@ -1,0 +1,160 @@
+<div
+  class="md:flex md:flex-row h-full w-full bg-white xl:bg-gray-50 gap-5 md:overflow-hidden box-border py-7 md:px-9"
+>
+  <!-- Description Section -->
+  <div
+    class="w-96 shadow-card bg-white rounded-2xl flex-shrink-0 overflow-y-auto no-scrollbar px-5 md:px-7 py-5"
+  >
+    <div class="flex flex-col gap-3">
+      <div class="space-y-3">
+        <h2
+          class="font-bold text-green-700 text-xl whitespace-nowrap leading-5"
+        >
+          Description
+        </h2>
+
+        <p class="font-normal text-gray-soft-700 text-xs leading-5">
+          Lorem Ipsum Dolor Sit Amet Consectetur. Aenean Sodales Pellentesque
+          Gravida Nibh Et Magna Faucibus. Dui Commodo Ut Metus Amet Egestas
+          Habitant Viverra. Quisque Fusce Senectus Facilisis Non Diam Leo Nulla
+          Sem Pellentesque. Sit In Vel Sed Cursus Metus Sit Fringilla
+          Vestibulum.
+        </p>
+      </div>
+
+      <div class="mt-11 space-y-3">
+        <h3 class="font-bold text-green-700 text-xl leading-5">Extra</h3>
+
+        <p class="font-normal text-gray-soft-700 text-xs leading-5">
+          Lorem ipsum dolor sit amet consectetur. Tempus a id adipiscing fames
+          egestas tellus dis pretium tempus. Justo nisl nisl lorem lectus id
+          ornare. Rhoncus in egestas in amet porttitor pellentesque sit. Amet
+          gravida integer velit felis. Eu consectetur interdum auctor sed
+          aliquam. Eu pulvinar accumsan sed id. Duis a aliquam eu quisque
+          commodo lectus. Lectus ipsum velit purus viverra vulputate viverra in
+          nunc nulla. Euismod rhoncus mauris urna orci gravida sagittis netus.
+          Amet mus in vel etiam. Interdum habitant congue massa in etiam sit.
+          Commodo nibh viverra lobortis augue lorem quam lorem suspendisse.
+        </p>
+      </div>
+
+      <div class="w-full h-px mt-8 bg-gray-soft-100"></div>
+
+      <!-- Detail Items -->
+      <div class="flex items-center gap-5 w-full">
+        <Label class="font-bold text-slate-700 text-sm tracking-wide leading-5">
+          Lorem Ipsum Dolor
+        </Label>
+        <div
+          class="font-normal text-gray-soft-700 tracking-wide leading-5 whitespace-nowrap text-sm"
+        >
+          10/19/2017
+        </div>
+      </div>
+
+      <div class="flex items-center gap-5 w-full">
+        <Label class="font-bold text-slate-700 text-sm tracking-wide leading-5">
+          Lorem Ipsum Dolor
+        </Label>
+        <div
+          class="font-normal text-gray-soft-700 tracking-wide leading-5 whitespace-nowrap text-sm"
+        >
+          Ut
+        </div>
+      </div>
+
+      <div class="flex items-center gap-5 w-full">
+        <Label class="font-bold text-slate-700 text-sm tracking-wide leading-5">
+          Lorem Ipsum Dolor
+        </Label>
+        <div
+          class="font-normal text-gray-soft-700 tracking-wide leading-5 whitespace-nowrap text-sm"
+        >
+          Eros
+        </div>
+      </div>
+
+      <div class="flex items-center gap-5 w-full">
+        <Label class="font-bold text-slate-700 text-sm tracking-wide leading-5">
+          Lorem Ipsum Dolor
+        </Label>
+        <div class="flex w-[60px] items-center gap-2.5">
+          <mat-icon class="text-green-600 font-bold">check</mat-icon>
+          <div
+            class="font-normal text-gray-soft-700 tracking-wide leading-5 whitespace-nowrap text-sm"
+          >
+            Yes
+          </div>
+        </div>
+      </div>
+
+      <div class="flex items-center gap-5 w-full">
+        <Label class="font-bold text-slate-700 text-sm tracking-wide leading-5">
+          Lorem Ipsum Dolor
+        </Label>
+        <div
+          class="font-normal text-gray-soft-700 tracking-wide leading-5 whitespace-nowrap text-sm"
+        >
+          Sit
+        </div>
+      </div>
+
+      <div class="flex items-center gap-5 w-full">
+        <Label class="font-bold text-slate-700 text-sm tracking-wide leading-5">
+          Lorem Ipsum Dolor
+        </Label>
+        <div
+          class="font-normal text-gray-soft-700 tracking-wide leading-5 whitespace-nowrap text-sm"
+        >
+          Lorem Ipsum Dolor
+        </div>
+      </div>
+
+      <div class="flex items-center gap-5 w-full">
+        <Label class="font-bold text-slate-700 text-sm tracking-wide leading-5">
+          Lorem Ipsum Dolor
+        </Label>
+        <div
+          class="font-normal text-gray-soft-700 tracking-wide leading-5 whitespace-nowrap text-sm"
+        >
+          Lorem Ipsum Dolor
+        </div>
+      </div>
+
+      <div class="w-full h-px bg-gray-soft-100"></div>
+
+      <h4 class="font-bold text-slate-700 text-sm tracking-wide leading-5">
+        Lorem Ipsum Dolor
+      </h4>
+
+      @for (item of cardData; track $index) {
+      <app-risk-info [data]="item"></app-risk-info>
+      }
+
+      <div class="w-full md:h-[124.92px] opacity-0"></div>
+    </div>
+  </div>
+
+  <!-- Extra Section -->
+  <section
+    class="flex flex-col h-full md:h-screen max-h-[750px] md:overflow-y-auto w-full items-start gap-5 px-5 md:px-7 md:pt-5 md:pb-7 bg-white rounded-2xl shadow-card"
+  >
+    <h2 class="font-bold text-green-700 text-xl whitespace-nowrap leading-5">
+      Lorem Lorem Lorem
+    </h2>
+
+    <div class="flex flex-col items-start gap-6 w-full">
+      <!-- Asset FLow -->
+      <asset-flow />
+      <h2 class="font-bold text-green-700 text-xl whitespace-nowrap leading-5">
+        Lorem Ipsum Dolor Sit
+      </h2>
+      <div class="flex md:flex-row flex-col gap-8 w-full pb-24 md:pb-0">
+        <!-- Risk Table -->
+        <app-risk-table />
+        <!-- Risk Chart -->
+        <app-risk-chart />
+      </div>
+    </div>
+  </section>
+</div>

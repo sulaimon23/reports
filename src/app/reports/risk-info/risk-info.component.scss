@@ -1,0 +1,19 @@
+::ng-deep .mat-expansion-panel-header {
+  padding: 0 !important;
+  height: auto !important;
+}
+
+::ng-deep .mat-expansion-panel-header-title {
+  margin: 0 !important;
+  width: 100%;
+}
+
+::ng-deep .mat-expansion-panel-body {
+  padding: 0 !important;
+}
+
+::ng-deep .mat-expansion-panel {
+  box-shadow: none !important;
+  border: none !important;
+  background: transparent !important;
+}

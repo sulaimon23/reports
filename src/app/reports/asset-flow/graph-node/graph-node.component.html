@@ -1,0 +1,37 @@
+<div
+  class="flex flex-col items-center justify-center gap-2 cursor-pointer relative"
+  [attr.aria-label]="title + ' network node'"
+  (mouseenter)="menuTrigger.openMenu()"
+  (mouseleave)="menuTrigger.closeMenu()"
+  [matMenuTriggerFor]="menu"
+  #menuTrigger="matMenuTrigger"
+>
+  <div
+    class="w-13 h-13 rounded-full relative flex items-center justify-center transition-all duration-200"
+    [class]="iconClasses()"
+    aria-hidden="true"
+  >
+    @if (customIcon) {
+    <img src="./venetian-mask.svg" alt="" />
+    } @else {
+    <img src="./server.svg" alt="" />
+    } @if (errorIcon) {
+    <div
+      class="absolute -top-2 -right-2 w-6 h-6 bg-red-500 rounded-full flex items-center justify-center"
+    >
+      <img src="./error-shield.svg" alt="" class="w-4 h-4" />
+    </div>
+    }
+  </div>
+
+  <div class="flex flex-col text-center">
+    <span class="text-xs text-gray-soft-700 font-semibold">{{ title }}</span>
+    <span class="text-[9px] text-gray-soft-500 font-normal">{{
+      subtitle
+    }}</span>
+  </div>
+</div>
+
+<mat-menu #menu="matMenu" [hasBackdrop]="false">
+  <ng-content></ng-content>
+</mat-menu>

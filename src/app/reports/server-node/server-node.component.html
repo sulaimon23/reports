@@ -1,0 +1,37 @@
+<div class="bg-white w-[460px] h-[168px] rounded-lg shadow-background p-7">
+  <div class="h-[95px]">
+    <header class="w-[216px] h-[22px] bg-red-50 rounded-md">
+      <h1
+        class="px-2 text-left font-semibold text-red-700 text-[13px] tracking-[0.13px] leading-[22px]"
+      >
+        {{ vulnerabilityData.title }}
+      </h1>
+    </header>
+
+    <section class="grid grid-cols-3 gap-x-[3px] gap-y-[7px] mt-[14px] pl-10">
+      @for (ip of vulnerabilityData.ipAddresses; track $index) {
+      <span
+        class="inline-flex items-center w-full justify-center gap-2.5 px-2.5 py-0.5 bg-red-50 rounded-md text-xs font-medium"
+      >
+        <span
+          class="[font-family:'IBM_Plex_Mono',Helvetica] font-semibold text-red-700 text-[13px] tracking-[0.13px] leading-[22px]"
+        >
+          {{ ip }}
+        </span>
+      </span>
+      }
+    </section>
+
+    <div class="flex">
+      <div
+        class="inline-flex mt-2 items-center justify-start gap-2.5 px-1 py-0.5 bg-purple-50 rounded-md text-xs font-medium"
+      >
+        <span
+          class="[font-family:'IBM_Plex_Mono',Helvetica] font-semibold text-purple-600 text-[13px] tracking-[0.13px] leading-[22px] whitespace-nowrap"
+        >
+          {{ vulnerabilityData.additionalInfo }}
+        </span>
+      </div>
+    </div>
+  </div>
+</div>
