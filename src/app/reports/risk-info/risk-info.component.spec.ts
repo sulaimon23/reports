@@ -8,9 +8,8 @@ describe('RiskInfoComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [RiskInfoComponent]
-    })
-    .compileComponents();
+      imports: [RiskInfoComponent],
+    }).compileComponents();
 
     fixture = TestBed.createComponent(RiskInfoComponent);
     component = fixture.componentInstance;

@@ -5,11 +5,9 @@ import { InfoCard } from '../../shared/models';
 @Component({
   selector: 'app-risk-info',
   standalone: true,
-  imports: [
-    MatExpansionModule,
-  ],
+  imports: [MatExpansionModule],
   templateUrl: './risk-info.component.html',
-  styleUrl: './risk-info.component.scss'
+  styleUrl: './risk-info.component.scss',
 })
 export class RiskInfoComponent {
   data = input.required<InfoCard>();

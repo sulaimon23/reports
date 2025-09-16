@@ -16,9 +16,7 @@ export class RiskTableComponent {
   readonly currentPage = signal(1);
   readonly pageSize = signal(5);
 
-  protected readonly totalPages = computed(() =>
-    Math.ceil(this.assets().length / this.pageSize())
-  );
+  protected readonly totalPages = computed(() => Math.ceil(this.assets().length / this.pageSize()));
 
   protected readonly paginatedAssets = computed(() => {
     const start = (this.currentPage() - 1) * this.pageSize();
@@ -32,9 +30,7 @@ export class RiskTableComponent {
     return `Showing ${start}-${end} of ${this.assets().length}`;
   });
 
-  protected readonly shouldShowPagination = computed(() =>
-    this.assets().length > this.pageSize()
-  );
+  protected readonly shouldShowPagination = computed(() => this.assets().length > this.pageSize());
 
   protected nextPage(): void {
     if (this.currentPage() < this.totalPages()) {

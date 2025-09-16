@@ -18,7 +18,7 @@ import { InfoCard } from '../shared/models';
     AssetFlowComponent,
   ],
   templateUrl: './reports.component.html',
-  styleUrl: './reports.component.scss'
+  styleUrl: './reports.component.scss',
 })
 export class ReportsComponent {
   cardData: InfoCard[] = MOCK_INFO_CARDS;

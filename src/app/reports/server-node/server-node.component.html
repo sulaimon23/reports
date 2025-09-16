@@ -10,15 +10,15 @@
 
     <section class="grid grid-cols-3 gap-x-[3px] gap-y-[7px] mt-[14px] pl-10">
       @for (ip of vulnerabilityData.ipAddresses; track $index) {
-      <span
-        class="inline-flex items-center w-full justify-center gap-2.5 px-2.5 py-0.5 bg-red-50 rounded-md text-xs font-medium"
-      >
         <span
-          class="[font-family:'IBM_Plex_Mono',Helvetica] font-semibold text-red-700 text-[13px] tracking-[0.13px] leading-[22px]"
+          class="inline-flex items-center w-full justify-center gap-2.5 px-2.5 py-0.5 bg-red-50 rounded-md text-xs font-medium"
         >
-          {{ ip }}
+          <span
+            class="[font-family:'IBM_Plex_Mono',Helvetica] font-semibold text-red-700 text-[13px] tracking-[0.13px] leading-[22px]"
+          >
+            {{ ip }}
+          </span>
         </span>
-      </span>
       }
     </section>
 

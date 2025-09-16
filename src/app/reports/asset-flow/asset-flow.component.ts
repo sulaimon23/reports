@@ -9,12 +9,7 @@ import { GraphNodeComponent } from './graph-node/graph-node.component';
 @Component({
   selector: 'app-asset-flow',
   standalone: true,
-  imports: [
-    CommonModule,
-    GraphNodeComponent,
-    ServerNodeComponent,
-    ServerInfoComponent,
-  ],
+  imports: [CommonModule, GraphNodeComponent, ServerNodeComponent, ServerInfoComponent],
   templateUrl: './asset-flow.component.html',
   styleUrls: ['./asset-flow.component.scss'],
 })

@@ -2,7 +2,6 @@ import { CommonModule } from '@angular/common';
 import { Component, computed } from '@angular/core';
 import { RISK_COUNTS } from '../../shared/constants/mock-data';
 
-
 interface RiskStat {
   level: string;
   count: number;
@@ -18,11 +17,9 @@ interface ChartSegment {
 @Component({
   selector: 'app-risk-chart',
   standalone: true,
-  imports: [
-    CommonModule,
-  ],
+  imports: [CommonModule],
   templateUrl: './risk-chart.component.html',
-  styleUrl: './risk-chart.component.scss'
+  styleUrl: './risk-chart.component.scss',
 })
 export class RiskChartComponent {
   protected readonly chartSize = 150;
@@ -61,9 +58,9 @@ export class RiskChartComponent {
     ];
 
     // Only create segments for non-zero counts
-    const nonZeroSegments = riskTypes.filter(risk => risk.count > 0);
+    const nonZeroSegments = riskTypes.filter((risk) => risk.count > 0);
 
-    nonZeroSegments.forEach(risk => {
+    nonZeroSegments.forEach((risk) => {
       const percent = (risk.count / total) * 100;
       segments.push({
         percent,

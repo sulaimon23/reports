@@ -7,23 +7,21 @@
     <!-- Risk Statistics -->
     <div class="flex flex-col gap-5 flex-1">
       @for (stat of riskStats(); track stat.level) {
-      <div class="flex items-center gap-2">
-        <span
-          class="flex items-center gap-2 text-sm whitespace-nowrap capitalize"
-        >
-          <span
-            class="w-2 h-2 rounded-full inline-block"
-            [ngClass]="{
-              'bg-red-800': stat.colorClass === 'critical',
-              'bg-red-700': stat.colorClass === 'high',
-              'bg-orange-500': stat.colorClass === 'medium',
-              'bg-green-700': stat.colorClass === 'low'
-            }"
-          ></span>
-          <span class="font-bold">{{ stat.count }}</span>
-          <span>{{ stat.level }}</span>
-        </span>
-      </div>
+        <div class="flex items-center gap-2">
+          <span class="flex items-center gap-2 text-sm whitespace-nowrap capitalize">
+            <span
+              class="w-2 h-2 rounded-full inline-block"
+              [ngClass]="{
+                'bg-red-800': stat.colorClass === 'critical',
+                'bg-red-700': stat.colorClass === 'high',
+                'bg-orange-500': stat.colorClass === 'medium',
+                'bg-green-700': stat.colorClass === 'low',
+              }"
+            ></span>
+            <span class="font-bold">{{ stat.count }}</span>
+            <span>{{ stat.level }}</span>
+          </span>
+        </div>
       }
     </div>
 
@@ -43,22 +41,20 @@
 
         <!-- Segments -->
         @for (segment of chartSegments(); track segment.colorClass) {
-        <circle
-          [attr.cx]="chartCenter"
-          [attr.cy]="chartCenter"
-          [attr.r]="chartRadius"
-          [attr.stroke-dasharray]="
-            segment.percent + ' ' + (100 - segment.percent)
-          "
-          [attr.stroke-dashoffset]="100 - segment.offset"
-          class="fill-none stroke-[4px] transition-all duration-700 ease-in-out"
-          [ngClass]="{
-            'stroke-red-800': segment.colorClass === 'critical',
-            'stroke-red-700': segment.colorClass === 'high',
-            'stroke-orange-500': segment.colorClass === 'medium',
-            'stroke-green-700': segment.colorClass === 'low'
-          }"
-        />
+          <circle
+            [attr.cx]="chartCenter"
+            [attr.cy]="chartCenter"
+            [attr.r]="chartRadius"
+            [attr.stroke-dasharray]="segment.percent + ' ' + (100 - segment.percent)"
+            [attr.stroke-dashoffset]="100 - segment.offset"
+            class="fill-none stroke-[4px] transition-all duration-700 ease-in-out"
+            [ngClass]="{
+              'stroke-red-800': segment.colorClass === 'critical',
+              'stroke-red-700': segment.colorClass === 'high',
+              'stroke-orange-500': segment.colorClass === 'medium',
+              'stroke-green-700': segment.colorClass === 'low',
+            }"
+          />
         }
 
         <!-- Center text -->

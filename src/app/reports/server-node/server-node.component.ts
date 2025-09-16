@@ -5,19 +5,12 @@ import { Component } from '@angular/core';
   standalone: true,
   imports: [],
   templateUrl: './server-node.component.html',
-  styleUrl: './server-node.component.scss'
+  styleUrl: './server-node.component.scss',
 })
 export class ServerNodeComponent {
   vulnerabilityData = {
-    title: "Lorem Ipsum Dolor Sit",
-    ipAddresses: [
-      "1.2.3.4",
-      "1.2.3.4",
-      "1.2.3.4",
-      "1.2.3.4",
-      "1.2.3.4",
-      "1.2.3.4",
-    ],
-    additionalInfo: "Lorem: 1.2.3.4",
+    title: 'Lorem Ipsum Dolor Sit',
+    ipAddresses: ['1.2.3.4', '1.2.3.4', '1.2.3.4', '1.2.3.4', '1.2.3.4', '1.2.3.4'],
+    additionalInfo: 'Lorem: 1.2.3.4',
   };
 }

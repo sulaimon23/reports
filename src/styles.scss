@@ -3,12 +3,11 @@
 @tailwind utilities;
 
 body {
-  font-family: "Public Sans", sans-serif;
+  font-family: 'Public Sans', sans-serif;
   font-optical-sizing: auto;
 }
 
 @layer utilities {
-
   /* Hide scrollbar for Chrome, Safari and Opera */
   .no-scrollbar::-webkit-scrollbar {
     display: none;
