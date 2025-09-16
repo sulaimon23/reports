@@ -11,11 +11,7 @@
       role="img"
     >
       <span role="img" aria-label="Firewall node">
-        <app-graph-node
-          [title]="'Loremipsumm'"
-          [customIcon]="true"
-          [initialNode]="true"
-        >
+        <app-graph-node [title]="'Loremipsumm'" [customIcon]="true" [initialNode]="true">
           <app-server-node></app-server-node>
         </app-graph-node>
       </span>
@@ -78,11 +74,9 @@
           class="w-6 h-6 rounded-full flex items-center justify-center text-white bg-red-600"
           aria-hidden="true"
         >
-          <img src="./error-shield.svg" />
+          <img src="./error-shield.svg" alt="error-shield" />
         </div>
-        <span class="text-red-600" aria-label="Critical risk level">
-          Lorem
-        </span>
+        <span class="text-red-600" aria-label="Critical risk level"> Lorem </span>
       </div>
 
       <div class="flex items-center gap-2 font-medium text-sm" role="listitem">
@@ -90,11 +84,9 @@
           class="w-6 h-6 rounded-full flex items-center justify-center text-white bg-orange-500"
           aria-hidden="true"
         >
-          <img src="./warning-shield.svg" />
+          <img src="./warning-shield.svg" alt="warning" />
         </div>
-        <span class="text-orange-500" aria-label="High risk level">
-          Lorem
-        </span>
+        <span class="text-orange-500" aria-label="High risk level"> Lorem </span>
       </div>
 
       <div class="flex items-center gap-2 font-medium text-sm" role="listitem">
@@ -102,7 +94,7 @@
           class="w-6 h-6 rounded-full flex items-center justify-center text-white bg-green-600"
           aria-hidden="true"
         >
-          <img src="./success-shield.svg" />
+          <img src="./success-shield.svg" alt="success" />
         </div>
         <span class="text-green-600" aria-label="Low risk level"> Lorem </span>
       </div>

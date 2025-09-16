@@ -1,15 +1,11 @@
-<div
-  class="inline-flex flex-col items-start gap-3 bg-white shadow-background rounded-lg relative"
->
+<div class="inline-flex flex-col items-start gap-3 bg-white shadow-background rounded-lg relative">
   <div class="inline-flex flex-col items-start gap-5 relative flex-[0_0_auto]">
     <div class="bg-gray-50 border-0 rounded-lg">
       <div
         class="inline-flex flex-col items-start justify-center gap-[5px] px-4 py-2.5 rounded-lg shadow-background bg-white"
       >
         <!-- Header with icon and title -->
-        <div
-          class="flex items-center gap-3.5 relative self-stretch w-full flex-[0_0_auto]"
-        >
+        <div class="flex items-center gap-3.5 relative self-stretch w-full flex-[0_0_auto]">
           <img
             class="relative w-[39.69px] h-[39.69px]"
             [alt]="config.title"
@@ -36,7 +32,7 @@
           class="inline-flex items-center gap-[5px] relative flex-[0_0_auto]"
         >
           <!-- Receipt icon (conditional) -->
-          <img *ngIf="row.hasIcon" src="./documentation.svg" />
+          <img *ngIf="row.hasIcon" src="./documentation.svg" alt="server-image" />
           <!-- Label (conditional) -->
           <div
             *ngIf="row.label"
@@ -50,9 +46,7 @@
             *ngFor="let badge of row.badges; trackBy: trackByIndex"
             [class]="getBadgeClasses(badge)"
           >
-            <div
-              class="relative w-fit mt-[-1.00px] leading-[22px] whitespace-nowrap"
-            >
+            <div class="relative w-fit mt-[-1.00px] leading-[22px] whitespace-nowrap">
               {{ badge.text }}
             </div>
           </span>

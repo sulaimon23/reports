@@ -20,7 +20,7 @@ export interface PopoverData {
   type: PopoverType;
   vulnerabilityLevel?: 'critical' | 'high' | 'medium' | 'low';
   additionalInfo?: PopoverInfo;
-  badge?: any;
+  badge?: unknown;
 }
 
 
@@ -35,11 +35,11 @@ export interface PopoverData {
   styleUrls: ['./graph-node.component.scss'],
 })
 export class GraphNodeComponent {
-  @Input() title: string = '';
-  @Input() subtitle: string = '';
-  @Input() customIcon: boolean = false;
-  @Input() errorIcon: boolean = false;
-  @Input() initialNode: boolean = false;
+  @Input() title = '';
+  @Input() subtitle = '';
+  @Input() customIcon = false;
+  @Input() errorIcon = false;
+  @Input() initialNode = false;
 
   iconClasses(): string {
     return this.initialNode

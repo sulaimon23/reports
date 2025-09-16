@@ -1,16 +1,11 @@
 <div
   class="bg-white rounded-2xl p-6 shadow-card border border-gray-100 transition-all duration-200 overflow-hidden md:p-4 sm:p-3"
 >
-  <mat-expansion-panel
-    hideToggle
-    class="shadow-none border-none bg-transparent p-0"
-  >
+  <mat-expansion-panel hideToggle class="shadow-none border-none bg-transparent p-0">
     <mat-expansion-panel-header class="p-0 h-auto hover:!bg-white">
       <mat-panel-title class="m-0">
         <div class="flex flex-col gap-5 w-full md:gap-4 sm:gap-3">
-          <h3
-            class="text-xl font-semibold text-gray-700 m-0 leading-tight md:text-lg sm:text-base"
-          >
+          <h3 class="text-xl font-semibold text-gray-700 m-0 leading-tight md:text-lg sm:text-base">
             {{ data().header }}
           </h3>
           <div
@@ -20,7 +15,7 @@
               <div
                 class="w-14 h-14 bg-blue-100 rounded-full flex items-center justify-center flex-shrink-0 md:w-12 md:h-12 sm:w-10 sm:h-10"
               >
-                <img src="/server.svg" />
+                <img src="/server.svg" alt="server image" />
               </div>
               <div class="flex flex-col gap-0.5">
                 <span
@@ -28,17 +23,13 @@
                 >
                   {{ data().title }}
                 </span>
-                <span
-                  class="text-sm text-gray-500 leading-tight md:text-xs sm:text-xs"
-                >
+                <span class="text-sm text-gray-500 leading-tight md:text-xs sm:text-xs">
                   {{ data().subtitle }}
                 </span>
               </div>
             </div>
             <div class="w-px h-12 bg-gray-200"></div>
-            <div
-              class="text-sm text-gray-500 !leading-[22px] flex-1 md:text-xs sm:text-xs"
-            >
+            <div class="text-sm text-gray-500 !leading-[22px] flex-1 md:text-xs sm:text-xs">
               {{ data().content }}
             </div>
           </div>
