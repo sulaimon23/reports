@@ -24,12 +24,25 @@ interface NavItem {
         }),
       ),
       state(
+        'expanded-lg',
+        style({
+          width: '300px',
+        }),
+      ),
+      state(
+        'expanded-xl',
+        style({
+          width: '320px',
+        }),
+      ),
+      state(
         'collapsed',
         style({
           width: '80px',
         }),
       ),
       transition('expanded <=> collapsed', [animate('300ms cubic-bezier(0.4, 0, 0.2, 1)')]),
+      transition('* <=> *', [animate('300ms cubic-bezier(0.4, 0, 0.2, 1)')]),
     ]),
 
     trigger('textFade', [
@@ -93,6 +106,7 @@ export class AppComponent {
   readonly opened = signal(true);
   readonly collapsed = signal(false);
   readonly isMobile = signal(false);
+  readonly screenSize = signal<'sm' | 'lg' | 'xl'>('sm');
 
   readonly items = signal<NavItem[]>([
     { icon: 'dashboard', label: 'Lorem', active: false },
@@ -105,9 +119,14 @@ export class AppComponent {
   ]);
 
   // Animation states
-  readonly sidebarState = computed(() =>
-    this.collapsed() && !this.isMobile() ? 'collapsed' : 'expanded',
-  );
+  readonly sidebarState = computed(() => {
+    if (this.isMobile() || this.collapsed()) {
+      return this.collapsed() ? 'collapsed' : 'expanded';
+    }
+
+    const size = this.screenSize();
+    return size === 'sm' ? 'expanded' : `expanded-${size}`;
+  });
 
   readonly textState = computed(() =>
     this.collapsed() && !this.isMobile() ? 'hidden' : 'visible',
@@ -126,8 +145,27 @@ export class AppComponent {
 
   private checkScreenSize(): void {
     setTimeout(() => {
-      const isMobileNow = window.innerWidth < 768;
+      const width = window.innerWidth;
+      const isMobileNow = width < 768;
+
       this.isMobile.set(isMobileNow);
+
+      if (width >= 1536) {
+        /**
+         * 2xl and above screens - 320px
+         */
+        this.screenSize.set('xl');
+      } else if (width >= 1280) {
+        /**
+         * xl screens - 300px
+         */
+        this.screenSize.set('lg');
+      } else {
+        /**
+         * lg and below screens - 250px
+         */
+        this.screenSize.set('sm');
+      }
 
       if (isMobileNow) {
         this.opened.set(false);
